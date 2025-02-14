@@ -1,31 +1,64 @@
 import asyncio
-import time
+from datetime import datetime
+from time import sleep
+# https://www.hashtagtreinamentos.com/programacao-assincrona-em-python?gad_source=1&gclid=CjwKCAiAzba9BhBhEiwA7glbao3vuTMd-NxhqnIXV7GnfsH0NO1dk-OLz0RZZxaqB3sw3qXAlaYg9BoCoAgQAvD_BwE
 
-# Função que simula uma chamada de rede com asyncio.sleep
-async def networkCall(name, delay):
-    print(f"Iniciando {name}...")
-    await asyncio.sleep(delay)
-    print(f"Finalizando {name} após {delay} segundos.")
-    return delay
 
-# Função assíncrona principal
+async def netCall(name:str, time:int):
+    print(f"START: {name}")
+    await asyncio.sleep(time)
+    print(f"END: {name}")
+
+
 async def main():
-    start_time = time.time()  # Marca o tempo de início
 
-    # Cria uma lista de tarefas assíncronas
-    tasks = [
-        networkCall("Chamada 1", 2),  # Simula 2 segundos de espera
-        networkCall("Chamada 2", 3),  # Simula 3 segundos de espera
-        networkCall("Chamada 3", 1),  # Simula 1 segundo de espera
-    ]
+    start = datetime.now()
+    
+    # Agenda tarefa .
+    tarefa1 = asyncio.create_task(netCall("tarefa_1", 8))
+    tarefa2 = asyncio.create_task(netCall("tarefa_2", 4))
+    tarefa3 = asyncio.create_task(netCall("tarefa_3", 2))
+    tarefa4 = asyncio.create_task(netCall("tarefa_4", 1))
 
-    # Executa todas as chamadas de rede simultaneamente
-    await asyncio.gather(*tasks)
+    print("END MAIN")
 
-    end_time = time.time()  # Marca o tempo de término
-    total_time = end_time - start_time  # Calcula o tempo total
-    print(f"\nTempo total de execução: {total_time:.2f} segundos")
+    await tarefa1  # Espera para encerrar.
+    await tarefa2
+    await tarefa3
+    await tarefa4
+    
+    totalMs = (datetime.now() - start).total_seconds()
+    print(f"TEMPO TOTAL ASSÍNCRONO: {totalMs}seg")
 
-# Executando o evento principal
-if __name__ == "__main__":
-    asyncio.run(main())
+asyncio.run(main())
+
+
+###########################################################################################################################
+
+
+def syncNetCall(name:str, time:int):
+    print(f"START: {name}")
+    sleep(time)
+    print(f"END: {name}")
+
+
+def syncMain():
+
+    start = datetime.now()
+    
+    syncNetCall("tarefa_1", 8)
+    syncNetCall("tarefa_2", 4)
+    syncNetCall("tarefa_3", 2)
+    syncNetCall("tarefa_4", 1)
+
+    print("END MAIN")
+    
+    totalMs = (datetime.now() - start).total_seconds()
+    print(f"TEMPO TOTAL SÍNCRONO: {totalMs}seg")
+
+syncMain()
+
+# TEMPO TOTAL ASSÍNCRONO: 8.004379seg
+# TEMPO TOTAL SÍNCRONO: 15.037259seg
+
+# Da para notar o granho de performance é alto usando funções assíncronas.
