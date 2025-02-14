@@ -1,0 +1,7 @@
+*** Descreva uma situação em que você teve que resolver um problema sob pressão. Como você lidou com o estresse e qual foi o resultado?***
+
+Trabalhei alguns anos com atendimento ao cliente como técnico de campo. Nesse período, tive várias situações com diferentes clientes, porém, uma situação marcante foi no meu trabalho atual, onde desenvolvemos um equipamento para a coleta de resíduos recicláveis. Durante esses dois anos de desenvolvimento, realizamos algumas demonstrações para grandes clientes. Em uma dessas apresentações, na Prefeitura de Itapecerica, estavam presentes o prefeito da cidade, vereadores, secretários e moradores. Poucos minutos antes da apresentação, o equipamento começou a apresentar alguns problemas, pois ainda estava em fase de desenvolvimento.
+
+Estava eu e um colega de trabalho, a princípio, ficamos desesperados. No entanto, diante da situação, só havia uma alternativa: identificar o problema no menor tempo possível. Com foco total, conseguimos até esquecer a importância do evento, aliviar parte da tensão e da pressão e partir para a análise. Enquanto um diagnosticava o hardware, o outro verificava o software. Em pouco tempo, identificamos um erro no software causado durante um merge. Felizmente, conseguimos resolver a falha a tempo, mas, durante toda a apresentação, permanecemos apreensivos. No final, deu tudo certo, porém foi uma situação extremamente estressante, onde o controle emocional foi fundamental.
+
+ 
