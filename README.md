@@ -3,7 +3,7 @@ Instruções para executar os projetos:
 ## 2 _Data_Analysis.ipynb
 
 * Instale as dependências:
-    pip install padas
+    pip install pandas
 
 * Execute o arquivo.
 
