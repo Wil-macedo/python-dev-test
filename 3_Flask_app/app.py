@@ -32,9 +32,10 @@ def saudacao():
         else:
             message = "Boa noite "
         
-        message += name + '\U0001F603'
+        message += name + '\U0001F603'  # Unicode Emoji.
         
     else:
+        # <HTML>
         message = """
         Instruções para receber uma mensagem personalizada:
         <br><br>
@@ -64,7 +65,7 @@ def sum():
     if len(content) == 2: # OK
         try:
             for _, value in content.items():
-                sumResult += int(value)
+                sumResult += int(value)  # Mesmo sendo enviado como string, o sistema efetua o cálculo.
             
             errorMessage:str = sumResult
             keyMessage:str = "Resultado"

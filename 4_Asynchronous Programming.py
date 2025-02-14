@@ -6,7 +6,7 @@ from time import sleep
 
 async def netCall(name:str, time:int):
     print(f"START: {name}")
-    await asyncio.sleep(time)
+    await asyncio.sleep(time)  # Sleep especifico para tarefas assíncronas.
     print(f"END: {name}")
 
 
@@ -14,20 +14,20 @@ async def main():
 
     start = datetime.now()
     
-    # Agenda tarefa .
+    # Agenda tarefas.
     tarefa1 = asyncio.create_task(netCall("tarefa_1", 8))
     tarefa2 = asyncio.create_task(netCall("tarefa_2", 4))
     tarefa3 = asyncio.create_task(netCall("tarefa_3", 2))
     tarefa4 = asyncio.create_task(netCall("tarefa_4", 1))
 
-    print("END MAIN")
+    print("ASYNC, tarefas agendada !")
 
-    await tarefa1  # Espera para encerrar.
+    await tarefa1  # Espera tarefa concluir.
     await tarefa2
     await tarefa3
     await tarefa4
     
-    totalMs = (datetime.now() - start).total_seconds()
+    totalMs = (datetime.now() - start).total_seconds()  # tempo total da execução.
     print(f"TEMPO TOTAL ASSÍNCRONO: {totalMs}seg")
 
 asyncio.run(main())
